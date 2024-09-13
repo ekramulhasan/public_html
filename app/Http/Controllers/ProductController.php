@@ -15,24 +15,26 @@ use Illuminate\Support\Str;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 
-class ProductController extends Controller {
+class ProductController extends Controller
+{
     /**
      * Display a listing of the resource.
      */
-    public function index() {
+    public function index()
+    {
         $product_data = Product::where( 'is_active', 1 )->with( 'category' )->latest( 'id' )->select( 'id', 'category_id', 'title', 'slug', 'price', 'product_stock', 'alert_quantiry', 'product_img', 'product_rating', 'updated_at' )->paginate();
 
         // $product = Product::with('sizes','category')->get();
 
         // return $product;
         return view( 'backend.product.index', compact( 'product_data' ) );
-
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create() {
+    public function create()
+    {
         // $category_data = category::select(['id','title'])->get();
         $category_data = category::with( ['subCategoryes.subsubcategories'] )->get();
         $size_data     = Size::select( 'id', 'size_name' )->get();
@@ -46,7 +48,8 @@ class ProductController extends Controller {
     /**
      * Store a newly created resource in storage.
      */
-    public function store( ProductRequest $request ) {
+    public function store( ProductRequest $request )
+    {
 
         // dd($request->all());
 
@@ -58,8 +61,8 @@ class ProductController extends Controller {
             'title'              => $request->product_name,
             'slug'               => Str::slug( $request->product_name ),
             'price'              => $request->product_price,
-            'delete_price'       => isset($request->delete_price,) ? $request->delete_price : null,
-            'discount_per'       => isset($request->dis_per,) ? $request->dis_per : null,
+            'delete_price'       => isset( $request->delete_price, ) ? $request->delete_price : null,
+            'discount_per'       => isset( $request->dis_per, ) ? $request->dis_per : null,
             'short_description'  => $request->short_description,
             'long_description'   => $request->long_description,
             'product_id'         => $request->product_code,
@@ -78,11 +81,9 @@ class ProductController extends Controller {
                 'size_id'    => $sizeId,
 
             ] );
-
         }
 
-
-        if (isset($request->color_id)) {
+        if ( isset( $request->color_id ) ) {
 
             foreach ( $request->color_id as $colorId ) {
 
@@ -92,11 +93,8 @@ class ProductController extends Controller {
                     'color_id'   => $colorId,
 
                 ] );
-
             }
         }
-
-
 
         $this->img_upload( $request, $products->id );
         $this->multiple_img_upload( $request, $products->id );
@@ -108,14 +106,16 @@ class ProductController extends Controller {
     /**
      * Display the specified resource.
      */
-    public function show( string $id ) {
+    public function show( string $id )
+    {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit( string $slug ) {
+    public function edit( string $slug )
+    {
         $product_update = Product::with( 'sizes', 'category' )->whereSlug( $slug )->first();
         $category_data  = category::with( 'subCategoryes.subsubcategories' )->get();
         $size_data      = Size::select( 'id', 'size_name' )->get();
@@ -127,7 +127,8 @@ class ProductController extends Controller {
     /**
      * Update the specified resource in storage.
      */
-    public function update( UpdateProduct $request, string $slug ) {
+    public function update( UpdateProduct $request, string $slug )
+    {
 
         $update_product = Product::whereSlug( $slug )->first();
 
@@ -141,8 +142,8 @@ class ProductController extends Controller {
             'title'              => $request->product_name,
             'slug'               => Str::slug( $request->product_name ),
             'price'              => $request->product_price,
-            'delete_price'       => isset($request->delete_price) ? $request->delete_price : null,
-            'discount_per'       => isset($request->dis_per,) ? $request->dis_per : null,
+            'delete_price'       => isset( $request->delete_price ) ? $request->delete_price : null,
+            'discount_per'       => isset( $request->dis_per, ) ? $request->dis_per : null,
             'short_description'  => $request->short_description,
             'long_description'   => $request->long_description,
             'product_id'         => $request->product_code,
@@ -161,11 +162,9 @@ class ProductController extends Controller {
                 'product_id' => $update_product->id,
                 'size_id'    => $sizeId,
             ] );
-
         }
 
-
-        if (isset($request->color_id)) {
+        if ( isset( $request->color_id ) ) {
 
             foreach ( $request->color_id as $colorId ) {
 
@@ -175,7 +174,6 @@ class ProductController extends Controller {
                     'color_id'   => $colorId,
 
                 ] );
-
             }
         }
 
@@ -183,22 +181,22 @@ class ProductController extends Controller {
         $this->multiple_img_upload( $request, $update_product->id );
         Toastr::success( 'successfully update the product' );
         return redirect()->route( 'products.index' );
-
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy( string $slug ) {
+    public function destroy( string $slug )
+    {
 
         $product = Product::whereSlug( $slug )->first();
         $product->delete();
 
         return redirect()->route( 'products.index' );
-
     }
 
-    public function img_upload( $request, $item_id ) {
+    public function img_upload( $request, $item_id )
+    {
 
         $product_data = Product::findorFail( $item_id );
 
@@ -232,11 +230,12 @@ class ProductController extends Controller {
 
             ] );
 
+            
         }
-
     }
 
-    public function multiple_img_upload( $request, $product_id ) {
+    public function multiple_img_upload( $request, $product_id )
+    {
 
         if ( $request->hasFile( 'multiple_product_img' ) ) {
 
@@ -250,7 +249,6 @@ class ProductController extends Controller {
                     $old_img       = $file_location . $value->product_multiple_img_name;
 
                     unlink( base_path( $old_img ) );
-
                 }
 
                 // delete old value from table
@@ -281,11 +279,7 @@ class ProductController extends Controller {
                 ] );
 
                 $flag++;
-
             }
-
         }
-
     }
-
 }

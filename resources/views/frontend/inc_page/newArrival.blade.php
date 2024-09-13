@@ -44,16 +44,26 @@
                                     <a href="{{ route('productDetails.page', [$value->slug]) }}"
                                         tabindex="0">{{ $value->title }}</a>
                                 </h3>
-                                     @if (!is_null($value->delete_price))
-                                            <p class="price"><del class="text-danger"><span
-                                                        class="akasha-Price-amount amount text-danger ml-1">৳
-                                                        {{ $value->delete_price }}</span></del> </p>
-                                        @endif
-                                <span class="price"><span class="akasha-Price-amount amount"><span
-                                            class="akasha-Price-currencySymbol">৳ </span>{{ $value->price }}</span>
-                                            
-                                        
+
+                                <div class="">
+                                    @if (!is_null($value->delete_price))
+                                        <p class="price"><del class="text-danger"><span
+                                                    class="akasha-Price-amount amount text-danger ml-1">৳
+                                                    {{ $value->delete_price }}</span></del> </p>
+                                    @endif
+                                    <span class="price"><span class="akasha-Price-amount amount"><span
+                                                class="akasha-Price-currencySymbol">৳ </span>{{ $value->price }}</span>
+                                </div>
+
+                                <div class="text-center mt-2">
+                                    <a href="{{ route('productDetails.page', [$value->slug]) }}" class="btn rounded"
+                                        style="background-color: black;color:white;">Order Now</a>
+                                </div>
+
+
                             </div>
+
+
                             {{-- <div class="group-button clearfix">
                                 <div class="yith-wcwl-add-to-wishlist">
                                     <div class="yith-wcwl-add-button show">
@@ -70,14 +80,15 @@
                                 </div>
                             </div> --}}
                         </div>
+
                     </div>
                 @endforeach
             </div>
 
-            <div class="text-center mt-4">
+            {{-- <div class="text-center mt-5">
                 <a href="{{ route('allproduct.page') }}" class="btn rounded"
                     style="background-color: black;color:white;">SEE MORE</a>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

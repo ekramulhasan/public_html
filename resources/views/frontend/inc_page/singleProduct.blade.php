@@ -350,15 +350,22 @@
                                             <span class="review">(0)</span>
                                         </div>
 
-                                        <span class="price"><span class="akasha-Price-amount amount"><span
-                                                    class="akasha-Price-currencySymbol">৳
-                                                </span>{{ $value->price }}</span></span>
 
-                                        @if (!is_null($value->delete_price))
-                                            <p class="price"><del class="text-danger"><span
-                                                        class="akasha-Price-amount amount text-danger ml-1">৳
-                                                        {{ $value->delete_price }}</span></del> </p>
-                                        @endif
+                                            <span class="price"><span class="akasha-Price-amount amount"><span
+                                                        class="akasha-Price-currencySymbol">৳
+                                                    </span>{{ $value->price }}</span></span>
+
+                                            @if (!is_null($value->delete_price))
+                                                <p class="price"><del class="text-danger"><span
+                                                            class="akasha-Price-amount amount text-danger ml-1">৳
+                                                            {{ $value->delete_price }}</span></del> </p>
+                                            @endif
+
+
+                                        <div class="text-center mt-1">
+                                            <a href="{{ route('productDetails.page', [$value->slug]) }}" class="btn rounded"
+                                                style="background-color: black;color:white;">Order Now</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

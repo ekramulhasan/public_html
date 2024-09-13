@@ -46,7 +46,8 @@
                                     data-wow-duration="1s" data-wow-delay="0ms" data-wow="fadeInUp">
                                     <div class="product-inner tooltip-left">
                                         <div class="product-thumb">
-                                            <a class="thumb-link" href="{{ route('productDetails.page', [$product->slug]) }}">
+                                            <a class="thumb-link"
+                                                href="{{ route('productDetails.page', [$product->slug]) }}">
                                                 <img class="img-responsive"
                                                     src="{{ asset('assets/uploads/products') }}/{{ $product->product_img }}"
                                                     alt="Long Oversized" width="600" height="778">
@@ -72,14 +73,21 @@
                                                     href="{{ route('productDetails.page', [$product->slug]) }}">{{ $product->title }}</a>
                                             </h3>
 
-                                            @if (!is_null($product->delete_price))
-                                                <p class="price"><del class="text-danger"><span
-                                                            class="akasha-Price-amount amount text-danger ml-1">৳
-                                                            {{ $product->delete_price }}</span></del> </p>
-                                            @endif
-                                            <span class="price"><span class="akasha-Price-amount amount">
-                                                    <span
-                                                        class="akasha-Price-currencySymbol">৳</span>{{ $product->price }}</span></span>
+                                            <div class="">
+                                                @if (!is_null($product->delete_price))
+                                                    <p class="price"><del class="text-danger"><span
+                                                                class="akasha-Price-amount amount text-danger ml-1">৳
+                                                                {{ $product->delete_price }}</span></del> </p>
+                                                @endif
+                                                <span class="price"><span class="akasha-Price-amount amount">
+                                                        <span
+                                                            class="akasha-Price-currencySymbol">৳</span>{{ $product->price }}</span></span>
+                                            </div>
+
+                                            <div class="text-center mt-2">
+                                                <a href="{{ route('productDetails.page', [$product->slug]) }}" class="btn rounded"
+                                                    style="background-color: black;color:white;">Order Now</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
