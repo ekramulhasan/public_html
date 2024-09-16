@@ -22,7 +22,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product_data = Product::where( 'is_active', 1 )->with( 'category' )->latest( 'id' )->select( 'id', 'category_id', 'title', 'slug', 'price', 'product_stock', 'alert_quantiry', 'product_img', 'product_rating', 'updated_at' )->paginate();
+        $product_data = Product::where( 'is_active', 1 )
+        ->with( 'category' )
+        ->latest( 'id' )
+        ->select( 'id', 'category_id', 'title', 'slug', 'price', 'product_stock', 'alert_quantiry', 'product_img', 'product_rating', 'updated_at' )
+        ->get();
 
         // $product = Product::with('sizes','category')->get();
 
@@ -230,7 +234,7 @@ class ProductController extends Controller
 
             ] );
 
-            
+
         }
     }
 

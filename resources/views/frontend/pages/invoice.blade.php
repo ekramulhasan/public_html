@@ -83,9 +83,9 @@
                                         <div class="invoice-number mb-30">
                                             <div class="invoice-number-inner">
                                                 <h4 class="inv-title-1">Invoice From</h4>
-                                                <h2 class="name mb-10">Rashed Khan</h2>
+
                                                 <p class="invo-addr-1">
-                                                    Fabrist Fashion <br />
+                                                    <b>Fabrist Fashion</b><br />
                                                     fabristlifestyle@gmail.com<br />
                                                     Mirpur-10, Dhaka, Bangladesh
                                                 </p>

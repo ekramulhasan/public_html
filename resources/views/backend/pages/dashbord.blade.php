@@ -1,3 +1,4 @@
+
 @extends('backend.layouts.master')
 @section('title')
     Dashbord
@@ -370,7 +371,7 @@
 
 
                                 </td>
-                                <td><a href="{{ route('admin.invoice', [$value->id]) }} class="btn btn-primary">view</a>
+                                <td><a href="{{ route('admin.invoice', [$value->id]) }}" class="btn btn-primary">view</a>
                                 </td>
 
                                 <td>{{ $value->created_at->format('d-M-Y H:i:s') }}</td>

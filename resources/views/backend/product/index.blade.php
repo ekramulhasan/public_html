@@ -60,7 +60,7 @@
 
                         @foreach ($product_data as $value)
                             <tr>
-                                <td scope="row">{{ $product_data->firstItem() + $loop->index }}</td>
+                                <td scope="row">{{ $loop->iteration }}</td>
                                 <td><img class="img-fluid  h-40 w-40"
                                         src=" {{ asset('assets/uploads/products') }}/{{ $value->product_img }}"
                                         alt=""></td>
