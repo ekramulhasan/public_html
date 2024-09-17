@@ -8,7 +8,6 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class DashbordController extends Controller {
-
     public function dashbord() {
 
         $total_earning  = DB::table( 'orders' )->sum( 'total' );
@@ -18,11 +17,11 @@ class DashbordController extends Controller {
         $total_user     = DB::table( 'users' )->where( 'role_id', 2 )->count();
         $order          = Order::with( 'billing', 'orderDetails', 'orderStatus' )->latest( 'id' )->paginate( 15 );
 
-        $orderStatus                 = [];
+        $orderStatus = [];
         $orderStatus['orderConfirm'] = OrderStatus::where( 'status', 'Confirm' )->count();
         $orderStatus['orderProcess'] = OrderStatus::where( 'status', 'Processing' )->count();
         $orderStatus['orderCancel']  = OrderStatus::where( 'status', 'Cancel' )->count();
-        $orderStatus['todayOrder']   = Order::whereDate( 'created_at', Carbon::today() )->count();
+        $orderStatus['todayOrder']   = Order::whereDate('created_at', Carbon::today())->count();
 
         $order_2021 = DB::table( 'orders' )->whereBetween( 'created_at', ['2021-01-01', '2021-12-31'] )->count();
         $order_2022 = DB::table( 'orders' )->whereBetween( 'created_at', ['2022-01-01', '2022-12-31'] )->count();
@@ -33,9 +32,10 @@ class DashbordController extends Controller {
         // dd($orderStatus['todayOrder']);
 
         // return $order_2021;
-        return view( 'backend.pages.dashbord', compact( 'total_earning', 'total_order', 'total_category', 'total_product', 'total_user', 'order', 'order_year_wise', 'orderStatus' ) );
+        return view( 'backend.pages.dashbord', compact( 'total_earning', 'total_order', 'total_category', 'total_product', 'total_user', 'order', 'order_year_wise','orderStatus' ) );
     }
-
+    
+    
     public function orderStatusData( $status ) {
         // dd( $status );
 
@@ -57,5 +57,4 @@ class DashbordController extends Controller {
 
         return view( 'backend.pages.order_status_data', compact( 'order' ) );
     }
-
 }

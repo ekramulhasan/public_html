@@ -78,8 +78,6 @@ Route::get( '/view-clear', function () {
 } );
 
 
-
-
 Route::get( '/', [HomeController::class, 'home'] )->name( 'home' );
 Route::get( '/single-product/{product_slug}', [HomeController::class, 'productDetails'] )->name( 'productDetails.page' );
 Route::get('/search',[HomeController::class,'search'])->name('search');
@@ -180,7 +178,7 @@ Route::prefix( 'admin/' )->group( function () {
         Route::get( 'subcategories/{category}', [SubcategoryController::class, 'get_subcategory'] )->name( 'subcategory.get' );
         Route::get( 'subsubcategories/{subcategory}', [SubsubcategoryController::class, 'get_subsubcategory'] )->name( 'subsubcategory.get' );
 
-        //Setting Management
+            //Setting Management
         Route::group(['as'=>'settings.', 'prefix'=>'settings'],function(){
 
             //general setting

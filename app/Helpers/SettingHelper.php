@@ -14,6 +14,7 @@ if (!function_exists('Setting')) {
     {
 
         return Setting::getByName($name,$default);
+        
 
     }
 }

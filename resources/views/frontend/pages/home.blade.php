@@ -21,4 +21,5 @@
 @endsection
 
 @push('frontend_js')
+
 @endpush

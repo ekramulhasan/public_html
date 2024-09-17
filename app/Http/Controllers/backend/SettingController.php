@@ -62,8 +62,8 @@ class SettingController extends Controller {
             ['value' => $request->site_facebook_link]
 
         );
-
-        Setting::updateOrCreate(
+        
+         Setting::updateOrCreate(
             ['name' => 'site_instagram_link'],
             ['value' => $request->site_instagram_link]
         );
@@ -76,6 +76,13 @@ class SettingController extends Controller {
         Setting::updateOrCreate(
             ['name' => 'site_whatsapp_link'],
             ['value' => $request->site_whatsapp_link]
+        );
+
+        Setting::updateOrCreate(
+
+            ['name' => 'site_linkeding_link'],
+            ['value' => $request->site_linkeding_link]
+
         );
 
         Setting::updateOrCreate(
