@@ -151,6 +151,7 @@ Route::prefix( 'admin/' )->group( function () {
     Route::middleware( ['auth', 'is_admin'] )->group( function () {
 
         Route::get( '/dashbord', [DashbordController::class, 'dashbord'] )->name( 'admin.dashbord' );
+        Route::get( '/order_status_data/{status}', [DashbordController::class, 'orderStatusData'] )->name( 'order_status.data' );
         // Route::get('/category',[DashbordController::class,'dashbord'])->name('admin.dashbord');
 
         //order and customer index

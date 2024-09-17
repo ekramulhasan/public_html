@@ -117,10 +117,10 @@
                                                         placeholder="your phone number" autocomplete="tel"
                                                         required></span>
                                             </p>
-                                            <p class="form-row form-row-wide validate-required validate-email"
+                                            <p class="form-row form-row-wide  validate-email"
                                                 id="billing_email_field" data-priority="110"><label for="billing_email"
-                                                    class="">Email &nbsp;<abbr class="required"
-                                                        title="required"></abbr></label><span
+                                                    class="">Email &nbsp;<abbr class=""
+                                                        title=""></abbr></label><span
                                                     class="akasha-input-wrapper"><input type="email"
                                                         class="input-text " name="email" id="billing_email"
                                                         placeholder="your email" autocomplete="email username"></span>
@@ -129,10 +129,10 @@
                                     </div>
 
                                 </div>
-                                <div class="col-2">
+                                <div class="col-1">
                                     <div class="akasha-shipping-fields">
                                     </div>
-                                    <div class="akasha-additional-fields">
+                                    {{-- <div class="akasha-additional-fields">
                                         <h3>Additional information</h3>
                                         <div class="akasha-additional-fields__field-wrapper">
                                             <p class="form-row notes" id="order_comments_field" data-priority="">
@@ -144,7 +144,7 @@
                                                 </span>
                                             </p>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <h3 id="order_review_heading">Your order</h3>

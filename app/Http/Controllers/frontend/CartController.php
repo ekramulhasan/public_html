@@ -93,7 +93,7 @@ class CartController extends Controller {
         \Cart::remove( $cart_id );
 
         Toastr::info( 'delete item' );
-        return back();
+        return to_route('home');
 
     }
 

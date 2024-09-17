@@ -81,17 +81,35 @@
                     </div>
 
                     <div class="mb-3">
-
                         <label class="form-label" for="site_facebook_link">Site Facebook Link (<i class='bx bxl-facebook-square'></i>)</label>
-                        <input type="text" class="form-control @error('site_facebook_link')
-                            is-invalid
-
-                        @enderror" id="site_facebook_link" placeholder="Site Facebook Link" name="site_facebook_link" value="{{ Setting('site_facebook_link') }}">
-
+                        <input type="text" class="form-control @error('site_facebook_link') is-invalid @enderror" id="site_facebook_link" placeholder="Site Facebook Link" name="site_facebook_link" value="{{ Setting('site_facebook_link') }}">
                         @error('site_facebook_link')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
+                    </div>
 
+                    <div class="mb-3">
+                        <label class="form-label" for="site_instagram_link">Site Instagram Link (<i class='bx bxl-instagram'></i>)</label>
+                        <input type="text" class="form-control @error('site_instagram_link') is-invalid @enderror" id="site_instagram_link" placeholder="Site Instagram Link" name="site_instagram_link" value="{{ Setting('site_instagram_link') }}">
+                        @error('site_instagram_link')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="site_tiktok_link">Site TikTok Link (<i class='bx bxl-tiktok'></i>)</label>
+                        <input type="text" class="form-control @error('site_tiktok_link') is-invalid @enderror" id="site_tiktok_link" placeholder="Site TikTok Link" name="site_tiktok_link" value="{{ Setting('site_tiktok_link') }}">
+                        @error('site_tiktok_link')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="site_whatsapp_link">Site WhatsApp Link (<i class='bx bxl-whatsapp'></i>)</label>
+                        <input type="text" class="form-control @error('site_whatsapp_link') is-invalid @enderror" id="site_whatsapp_link" placeholder="Site WhatsApp Link" name="site_whatsapp_link" value="{{ Setting('site_whatsapp_link') }}">
+                        @error('site_whatsapp_link')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">

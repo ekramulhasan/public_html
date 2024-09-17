@@ -1,4 +1,3 @@
-
 @extends('backend.layouts.master')
 @section('title')
     Dashbord
@@ -57,7 +56,8 @@
                     </div>
 
                     <div class="col-6 col-md-4 col-lg-2">
-                        <div class="card h-100 hover-scale-up cursor-pointer">
+                        <a href="{{ route('order.data') }}"
+                            class="card h-100 hover-scale-up cursor-pointer text-decoration-none">
                             <div class="card-body d-flex flex-column align-items-center">
                                 <div
                                     class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
@@ -75,12 +75,13 @@
                                 </div>
                                 <div class="text-primary cta-4">{{ $total_order }}</div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
 
                     <div class="col-6 col-md-4 col-lg-2">
-                        <div class="card h-100 hover-scale-up cursor-pointer">
+                        <a href="{{ route('order_status.data','today')}}"
+                            class="card h-100 hover-scale-up cursor-pointer text-decoration-none">
                             <div class="card-body d-flex flex-column align-items-center">
                                 <div
                                     class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
@@ -98,11 +99,12 @@
                                 </div>
                                 <div class="text-primary cta-4">{{ $orderStatus['todayOrder'] }}</div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                     <div class="col-6 col-md-4 col-lg-2">
-                        <div class="card h-100 hover-scale-up cursor-pointer">
+                        <a href="{{ route('order_status.data', 'Processing') }}"
+                            class="card h-100 hover-scale-up cursor-pointer text-decoration-none">
                             <div class="card-body d-flex flex-column align-items-center">
                                 <div
                                     class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
@@ -121,11 +123,12 @@
                                 </div>
                                 <div class="text-primary cta-4">{{ $orderStatus['orderProcess'] }}</div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                     <div class="col-6 col-md-4 col-lg-2">
-                        <div class="card h-100 hover-scale-up cursor-pointer">
+                        <a href="{{ route('order_status.data', 'Confirm') }}"
+                            class="card h-100 hover-scale-up cursor-pointer text-decoration-none">
                             <div class="card-body d-flex flex-column align-items-center">
                                 <div
                                     class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
@@ -143,12 +146,13 @@
                                 </div>
                                 <div class="text-primary cta-4">{{ $orderStatus['orderConfirm'] }}</div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
 
                     <div class="col-6 col-md-4 col-lg-2">
-                        <div class="card h-100 hover-scale-up cursor-pointer">
+                        <a href="{{ route('order_status.data', 'Cancel') }}"
+                            class="card h-100 hover-scale-up cursor-pointer text-decoration-none">
                             <div class="card-body d-flex flex-column align-items-center">
                                 <div
                                     class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
@@ -166,7 +170,7 @@
                                 </div>
                                 <div class="text-primary cta-4">{{ $orderStatus['orderCancel'] }}</div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
 
@@ -187,7 +191,8 @@
                 <div class="row g-2">
 
                     <div class="col-6 col-md-4 col-lg-2">
-                        <div class="card h-100 hover-scale-up cursor-pointer">
+                        <a href="{{ route('customer.data') }}"
+                            class="card h-100 hover-scale-up cursor-pointer text-decoration-none">
                             <div class="card-body d-flex flex-column align-items-center">
                                 <div
                                     class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
@@ -206,12 +211,13 @@
                                 <div class="mb-1 d-flex align-items-center text-alternate text-small lh-1-25">USERS</div>
                                 <div class="text-primary cta-4">{{ $total_user }}</div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
 
                     <div class="col-6 col-md-4 col-lg-2">
-                        <div class="card h-100 hover-scale-up cursor-pointer">
+                        <a href="{{ route('products.index') }}"
+                            class="card h-100 hover-scale-up cursor-pointer text-decoration-none">
                             <div class="card-body d-flex flex-column align-items-center">
                                 <div
                                     class="sw-6 sh-6 rounded-xl d-flex justify-content-center align-items-center border border-primary mb-4">
@@ -229,7 +235,7 @@
                                 <div class="mb-1 d-flex align-items-center text-alternate text-small lh-1-25">PRODUCT</div>
                                 <div class="text-primary cta-4">{{ $total_product }}</div>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                 </div>
@@ -319,7 +325,9 @@
                                                                                 <td>{{ $item->product->title ?? 'none' }}
                                                                                 </td>
                                                                                 <td>
-                                                                                    <img class="img-fluid  h-100 w-100" src="{{ asset('assets/uploads/products') }}/{{ $item->product_img  }}" alt="">
+                                                                                    <img class="img-fluid  h-100 w-100"
+                                                                                        src="{{ asset('assets/uploads/products') }}/{{ $item->product_img }}"
+                                                                                        alt="">
                                                                                 </td>
                                                                                 <td>{{ $item->product_size }}</td>
                                                                                 <td>{{ $item->product_qty }}</td>
@@ -383,8 +391,6 @@
                                         <form action="{{ route('order.status') }}" method="POST"
                                             class="d-flex align-items-center">
                                             @csrf
-
-
 
                                             <select name="status" id="" class="form-select me-2"
                                                 aria-label="Default select example">

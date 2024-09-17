@@ -8,9 +8,12 @@
                         <div class="listitem-inner">
                             <h4 class="title">About Fabrist</h4>
                             <ul class="listitem-list">
-                              <span>
-                                Fabrist is a prominent men’s lifestyle brand in the retail fashion industry of Bangladesh, with the purpose of providing a fair price. As a fashion brand, Fabrist is well-known for its unique aesthetic, wide range of men's collections, and reasonable pricing without compromising quality.
-                              </span>
+                                <span>
+                                    Fabrist is a prominent men’s lifestyle brand in the retail fashion industry of
+                                    Bangladesh, with the purpose of providing a fair price. As a fashion brand, Fabrist
+                                    is well-known for its unique aesthetic, wide range of men's collections, and
+                                    reasonable pricing without compromising quality.
+                                </span>
                             </ul>
                         </div>
                     </div>
@@ -18,22 +21,22 @@
                         <div class="content-socials">
                             <ul class="socials-list">
                                 <li>
-                                    <a href="https://www.facebook.com/fabristlifestyle" target="_blank">
+                                    <a href="{{ setting('site_facebook_link') }}" target="_blank">
                                         <i class="fa-brands fa-facebook-f"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.instagram.com/fabristlifestylebd" target="_blank">
+                                    <a href="{{ setting('site_instagram_link') }}" target="_blank">
                                         <i class="fa-brands fa-instagram"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.linkedin.com/company/fabristlifestyle" target="_blank">
+                                    <a href="{{ setting('site_linkeding_link') }}" target="_blank">
                                         <i class="fa-brands fa-linkedin"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://www.tiktok.com/@fabristlifestyle" target="_blank">
+                                    <a href="{{ setting('site_tiktok_link') }}" target="_blank">
                                         <i class="fa-brands fa-tiktok"></i>
                                     </a>
                                 </li>
@@ -114,7 +117,8 @@
                             </div>
                             <div class="newsletter-form-wrap">
                                 <div class="newsletter-form-inner">
-                                    <input class="email email-newsletter" name="email" placeholder="Enter your email ..." type="email">
+                                    <input class="email email-newsletter" name="email"
+                                        placeholder="Enter your email ..." type="email">
                                     <a href="#" class="button btn-submit submit-newsletter">
                                         <span class="text">Subscribe</span>
                                     </a>
